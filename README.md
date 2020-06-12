@@ -1,2 +1,2 @@
 # PokedexCPP
-Basic pokedex with first gen of pokemones. 
+Basic pokedex with first gen of pokemons. 
