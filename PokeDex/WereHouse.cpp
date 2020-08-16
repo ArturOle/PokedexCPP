@@ -6,13 +6,12 @@ WereHouse::WereHouse() {
 
 void WereHouse::LoadData() {
 
-	std::fstream file;
-	file.open("PokeGenOne.txt", std::ios::in);
+	std::fstream stream;
+	stream.open("PokeGenOne.txt", std::ios::in);
 	std::string data;
-	if (file.is_open()) {
-		while (std::getline(file, data)) {
+	if (stream.is_open()) {
+		while (std::getline(stream, data)) {
 			strvec.push_back(Slash(data));
-			//wxString text = GetInfo(data, 3).give();
 		}
 	}
 	else {
@@ -22,7 +21,7 @@ void WereHouse::LoadData() {
 
 void WereHouse::Show() {
 	LoadData();
-	for (auto x : strvec) {
+	for (auto x : this->strvec) {
 		int size = x.size();
 		for (int i = 0; i < size; i++) {
 			std::cout << x[i];
@@ -32,22 +31,21 @@ void WereHouse::Show() {
 }
 
 std::vector<std::string> WereHouse::Slash(std::string data) {
-	std::vector<std::string> vec;
-	std::string str = data;
-	std::string tmp;
+	std::vector<std::string> vec; // nie tykaæ
+	this->str = data;
 
-	for (int i = 0; i < str.size(); i++) {
-		if (str[i] == ',') {
-			vec.push_back(tmp);
-			tmp.clear();
+	for (int i = 0; i < this->str.size()+1; i++) {
+		if (this->str[i] == ',') {
+			vec.push_back(this->tmp);
+			this->tmp.clear();
 		}
 		else {
-			tmp += str[i];
+			this->tmp += this->str[i];
 		}
 	}
 	return vec;
 }
 
 WereHouse::~WereHouse() {
-	strvec.clear();
+	this->strvec.clear();
 }
