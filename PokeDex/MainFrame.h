@@ -1,37 +1,42 @@
 #include <wx/wx.h>
 #include <wx/file.h>
 #include <wx/msgdlg.h>
+#include <wx/panel.h>
+#include <wx/windowptr.h>
 #include <iostream>
 #include <string>
 #include "WereHouse.h"
+#include "InfoPanel.h"
+#include "ListPanel.h"
+
 
 #pragma once
 class MainFrame : public wxFrame
 {
-	wxString path = wxGetCwd();
+public:
+	friend class InfoPanel;
+	friend class ListPanel;
+
+
+	wxPanel* m_parent;
+	InfoPanel* info_panel; 
+	//wxWindowPtr<InfoPanel> info_parent;
+	ListPanel* list_panel;
 	wxBoxSizer* sizer_v;
 	wxBoxSizer* sizer_h;
 	wxButton* PokeButt;
 	wxButton* Evacuate;
-	WereHouse* werehouse;
-	wxStaticText* poke_info;
-	wxListBox* poke_list;
-	std::string poke_data;
-	//int xImageSize, yImageSize = 64;
-	//int PngImageSize = xImageSize * yImageSize * 16;
-	//byte* bpImage = (byte*)malloc(PngImageSize);
+	WereHouse* werehouse = new WereHouse;
 
-	void UpdateInfo(wxCommandEvent& event);
+	const wxString& title = title;
+	const wxPoint& pos = pos;
+	const wxSize& size = size;
+
 	void pointer_handler();
 	void sizer_handler();
 	void connector();
-	wxImage get_image(std::string pokemon_name);
-	std::vector<std::string> choice_getter();
-	void choice_parser(std::vector<std::string> choice);
+	void on_quit(wxCloseEvent& event);
 
-	void OnQuit(wxCloseEvent& event);
-
-public:
 	MainFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
 
 };

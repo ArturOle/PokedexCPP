@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="InfoPanel.cpp" />
+    <ClCompile Include="ListPanel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="WereHouse.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="InfoPanel.h" />
+    <ClInclude Include="ListPanel.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="WereHouse.h" />
