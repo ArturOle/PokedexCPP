@@ -21,14 +21,11 @@ public:
 	//WereHouse* werehouse;
 	MainFrame* main_frame;
 
-	void update_info(wxCommandEvent& event);
 	void pointer_handler();
 	void update_image(std::string pokemon_name);
-	void connector();
 	wxBitmap get_image(std::string pokemon_name);
 	void sizer_handler();
 
 	InfoPanel(wxPanel* parent);
-	~InfoPanel();
 };
 

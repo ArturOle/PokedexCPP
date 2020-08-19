@@ -20,9 +20,10 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 
 	poke_list = list_panel->poke_list;
 
-	sizer_h->Add(info_panel, 1,  wxLEFT, 1);
-	sizer_h->Add(list_panel->sizer_v, 1,  wxRIGHT | wxBOTTOM | wxEXPAND, 1);
-
+	sizer_h->Add(info_panel, 1, wxLEFT, 1);
+	sizer_h->Add(list_panel->sizer_v, 1,  wxRIGHT | wxEXPAND, 1);
+	//wxBoxSizer* sizer_v1 = new wxBoxSizer(wxVERTICAL);
+	//sizer_v1->Add
 	m_parent->SetSizer(sizer_h);
 	//m_parent->Layout();
 
@@ -44,7 +45,7 @@ void MainFrame::pointer_handler()
 {
 	this->SetBackgroundColour(wxColor(*wxRED));
 	this->SetSizer(this->sizer_v);
-	this->Layout();
+	//this->Layout();
 }
 
 void MainFrame::sizer_handler() 
@@ -59,11 +60,11 @@ void MainFrame::sizer_handler()
 
 void MainFrame::update_info(wxCommandEvent& event)
 {
-	wxMessageBox(list_panel->poke_list->GetString(69));
 
 	int sel = poke_list->GetSelection();
 	int max = werehouse->strvec[sel].size() - 1;
 	info_panel->poke_data = "";
+
 	for (int i = 0; i < max; i++) {
 		std::string text[] = { "Pokedex Number: ", "\nName: ", "\nGeneration: ", "\nType: ", " & " };
 		info_panel->poke_data.append(text[i]);
@@ -72,6 +73,7 @@ void MainFrame::update_info(wxCommandEvent& event)
 
 	info_panel->update_image(werehouse->strvec[sel][2]);
 	info_panel->poke_info->SetLabel(info_panel->poke_data);
+	info_panel->sizer_handler();
 }
 
 
