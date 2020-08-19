@@ -14,7 +14,6 @@ public:
 
 	wxPanel* m_parent;
 	wxBoxSizer* sizer_v;
-	wxBoxSizer* sizer_h;
 	wxString path = wxGetCwd();
 	wxStaticBitmap* image;
 	std::string poke_data;
