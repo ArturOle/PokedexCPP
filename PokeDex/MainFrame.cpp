@@ -20,7 +20,7 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 
 	poke_list = list_panel->poke_list;
 
-	sizer_h->Add(info_panel, 1, wxLEFT, 1);
+	sizer_h->Add(info_panel, 1, wxLEFT | wxEXPAND, 1);
 	sizer_h->Add(list_panel->sizer_v, 1,  wxRIGHT | wxEXPAND, 1);
 	//wxBoxSizer* sizer_v1 = new wxBoxSizer(wxVERTICAL);
 	//sizer_v1->Add
@@ -37,6 +37,7 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 void MainFrame::on_quit(wxCloseEvent& event) 
 {
 	delete(werehouse);
+	delete(info_panel->image);
 	wxWindow::Close();
 }
 
@@ -71,9 +72,12 @@ void MainFrame::update_info(wxCommandEvent& event)
 		info_panel->poke_data.append(werehouse->strvec[sel][i + 1]);
 	}
 
-	info_panel->update_image(werehouse->strvec[sel][2]);
 	info_panel->poke_info->SetLabel(info_panel->poke_data);
+	info_panel->update_image(werehouse->strvec[sel][2]);
+	
 	info_panel->sizer_handler();
+	this->SetSizer(sizer_v);
+	this->Layout();
 }
 
 

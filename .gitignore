@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+# Logs
+*.tlog
+*.log
+
 # Useless folders
 /Debug
 /x64

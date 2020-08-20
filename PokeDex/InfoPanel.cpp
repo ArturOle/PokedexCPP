@@ -33,7 +33,7 @@ wxBitmap InfoPanel::get_image(std::string pokemon_name)
 	if (wxFile::Exists(poke_path))
 	{
 		poke_image.LoadFile(poke_path);
-		wxBitmap poke_bitmap(poke_image, wxBITMAP_TYPE_PNG);
+		poke_image.Rescale(96, 96, wxIMAGE_QUALITY_NEAREST);
 		return poke_image;
 	}
 	else
@@ -52,6 +52,7 @@ void InfoPanel::sizer_handler()
 }
 
 void InfoPanel::update_image(std::string pokemon_name)
-{
+{	
+	delete(image);
 	image = new wxStaticBitmap(this, wxID_ANY, this->get_image(pokemon_name) );
 }
