@@ -2,7 +2,8 @@
 
 Basic pokedex with first gen of pokemons. 
 
-Exe and whole program works only with txt file "PokemonGenOne"
+Open PokeDex.vsproj form PokeDex folder to open project.
+Next run build to create executable file.
 
 
 ## Check-list for functionalities
