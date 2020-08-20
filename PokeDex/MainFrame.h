@@ -3,8 +3,12 @@
 #include <wx/msgdlg.h>
 #include <wx/panel.h>
 #include <wx/windowptr.h>
+#include <wx/sound.h>
+
 #include <iostream>
 #include <string>
+#include <random>
+
 #include "WereHouse.h"
 #include "InfoPanel.h"
 #include "ListPanel.h"
@@ -37,6 +41,7 @@ public:
 	void pointer_handler();
 	void sizer_handler();
 	void update_info(wxCommandEvent& event);
+	void poke_sound(wxCommandEvent& event);
 	void connector();
 	void on_quit(wxCloseEvent& event);
 	void on_quit();

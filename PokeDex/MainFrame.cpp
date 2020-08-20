@@ -77,8 +77,21 @@ void MainFrame::update_info(wxCommandEvent& event)
 }
 
 
+void MainFrame::poke_sound(wxCommandEvent& event)
+{
+	std::random_device rd;
+	std::mt19937 mt(rd());
+	std::uniform_int_distribution<int> dist(0, 148);
+	int file_index = dist(mt);
+	wxSound* cries = new wxSound(info_panel->path + "\\Sounds\\*" + std::to_string(file_index)+".mp3");
+	cries->Play();
+}
+
+
 void MainFrame::connector() 
 {
+	//Connect(13, wxEVT_COMMAND_BUTTON_CLICKED,
+	//	wxCommandEventHandler(MainFrame::poke_sound));
 	Connect(wxEVT_COMMAND_LISTBOX_DOUBLECLICKED,
 		wxCommandEventHandler(MainFrame::update_info));
 	Connect(11, wxEVT_COMMAND_BUTTON_CLICKED,
