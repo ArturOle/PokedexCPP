@@ -1,6 +1,5 @@
 #include <wx/wx.h>
 #include <fstream>
-//#include <iostream>
 
 
 #pragma once

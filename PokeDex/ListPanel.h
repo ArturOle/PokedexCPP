@@ -14,10 +14,10 @@ public:
 	MainFrame* main_frame;
 	wxListBox* poke_list;
 
+	ListPanel(wxPanel* parent);
+
 	void sizer_handler();
 	std::vector<std::string> choice_getter();
 	void choice_parser(std::vector<std::string> choice);
-
-	ListPanel(wxPanel* parent);
 };
 

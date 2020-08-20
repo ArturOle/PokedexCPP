@@ -1,8 +1,10 @@
 #include "WereHouse.h"
 
+
 WereHouse::WereHouse() {
 	LoadData();
 }
+
 
 void WereHouse::LoadData() {
 
@@ -19,6 +21,7 @@ void WereHouse::LoadData() {
 	}
 }
 
+
 void WereHouse::Show() {
 	LoadData();
 	for (auto x : this->strvec) {
@@ -29,6 +32,7 @@ void WereHouse::Show() {
 		std::cout << "\n";
 	}
 }
+
 
 std::vector<std::string> WereHouse::Slash(std::string data) {
 	std::vector<std::string> vec; // nie tykaæ
@@ -45,6 +49,7 @@ std::vector<std::string> WereHouse::Slash(std::string data) {
 	}
 	return vec;
 }
+
 
 WereHouse::~WereHouse() {
 	this->strvec.clear();
