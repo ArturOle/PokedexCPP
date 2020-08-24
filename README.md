@@ -8,9 +8,9 @@ Next run build to create executable file.
 
 ## Check-list for functionalities
 
-- Dynamic, rosponsive window 
-- Panel-to-panel event commenication
-- Choosing and displaing pokemon
+- Dynamic, responsive window 
+- Panel-to-panel event communication
+- Choosing and displaying pokemon
 - Clicking on pokemon sprite
 
 ## Requirements
